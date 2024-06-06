@@ -11,7 +11,7 @@ if [ -e $i ]; then
 	fi
 
 	if [ -f $i ]; then
-		echo "$i is a reqular file"
+		echo "$i is a regular file"
 	fi
 else
 	echo "$i file does not exist"
