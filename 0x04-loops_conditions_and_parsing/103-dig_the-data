@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# 102-lets_parse_apache_logs
+# print ip and status code from a log and occurence number asc
+
+awk '{print $1 " " $9}' apache-access.log | sort | uniq -c | sort -rn
