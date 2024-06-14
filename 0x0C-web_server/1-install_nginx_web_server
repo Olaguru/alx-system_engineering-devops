@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# a Bash script that configures and install nginx
+# servers are the piece of software generating and serving HTML pages
+# installing nginx on the web-01
 
-sudo apt-get update -y
-sudo apt-get nginx -y
-ufw allow 80
-sh -c 'echo "Hello World!" > /var/www/html/index.html'
+apt-get update -y
+apt-get install nginx -y
+sudo ufw allow 'Nginx HTTP'
+sh -c 'echo "Hello World!" > /var/www/html/index.html' 
 service nginx restart
