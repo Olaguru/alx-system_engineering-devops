@@ -3,6 +3,6 @@
 
 sudo apt-get update -y
 sudo apt-get nginx -y
-sudo ufw allow 'Nginx HTTP'
-sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
-sudo service nginx restart
+ufw allow 'Nginx HTTP'
+sh -c 'echo "Hello World!" > /var/www/html/index.html'
+service nginx restart
