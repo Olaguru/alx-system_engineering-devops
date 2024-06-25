@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# install load balancer
+
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+sudo chown $USER:USER /etc/haproxy/haproxy.cfg
+
+echo "
+frontend cryptotechcoder
+    bind *:80
+    mode http
+    default_backend app
+
+backend app
+    balance roundrobin
+    server 439003-web-01 52.91.177.244:80 check
+    server 439003-web-02 34.227.101.167:80 check" >> /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart
