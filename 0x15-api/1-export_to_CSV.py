@@ -35,7 +35,7 @@ def get_employee_todos_progress(employee_id):
         with open(csv_filename, mode="w", newline='') as csv_file:
             writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
             for task in json_todos_list:
-                writer.writenow([employee_id, employee_name,
+                writer.writerow([employee_id, employee_name,
                                  task['completed'], task['title']])
 
     except Exception as e:
