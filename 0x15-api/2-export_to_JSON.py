@@ -35,11 +35,11 @@ def get_employee_todos_progress(employee_id):
                 {"task": task["title"],
                  "completed": task["completed"],
                  "username": employee_name
-                    }
+                 }
                 for task in json_todos_list
                 ]
         new_json_data = {str(employee_id): tasks}
-    
+
         """exporting data """
         json_filename = f"{employee_id}.json"
         with open(json_filename, mode="w") as json_file:
