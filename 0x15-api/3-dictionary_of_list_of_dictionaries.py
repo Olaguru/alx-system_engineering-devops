@@ -13,7 +13,7 @@ def get_employee_tasks():
         user_data = user_response.json()
 
         """now hold the employee data in dictionary"""
-        all_employee_data = {}
+        all_employee_task = {}
 
         for user in user_data:
             employee_id = user['id']
@@ -26,16 +26,17 @@ def get_employee_tasks():
             """prepare the json data"""
             tasks = [
                     {"username": employee_name,
-                     "tasks": task["title"],
+                     "task": task["title"],
                      "completed": task["completed"]
                      }
                     for task in todo_list
                     ]
-            all_employee_data[str(employee_id)] = tasks
+            all_employee_task[str(employee_id)] = tasks
 
         json_filename = "todo_all_employees.json"
         with open(json_filename, mode="w") as json_file:
-            json.dump(all_employee_data, json_file, indent=4)
+            json.dump(all_employee_task, json_file, indent=4)
+
     except Exception as e:
         print(f"an error ocuured {e}")
 
